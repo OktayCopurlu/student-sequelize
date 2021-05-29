@@ -15,14 +15,14 @@ const {  createEnrollment,
 });
 
 
-/** Add a new movie */
+/** Add a new enrollment */
  router.post('/', async function(req, res, next) {
   const newEnrollment = req.body;
   const createdEnrollment = await createEnrollment(newEnrollment);
   return await res.status(201).send(createdEnrollment);
 });
 
-/** get a movie by id */
+/** get a enrollment by id */
 router.get('/:id', async function(req, res, next) {
   let EnrollmentId = req.params.id;
   const Enrollment = await getEnrollmentById(EnrollmentId)
@@ -30,14 +30,14 @@ router.get('/:id', async function(req, res, next) {
 });
 
 
-/** delete a movie by id */
+/** delete a enrollment by id */
 router.delete('/:id', async function(req, res, next) {
   let EnrollmentId = await req.params.id;
   await deleteEnrollment(EnrollmentId);
   return await res.status(200).send({});
 });
 
-/** update a movie by id */
+/** update a enrollment by id */
 router.put('/:id', async function(req, res, next) {
   let pId = req.params.id;
   let pUpdatedEnrollment = req.body;

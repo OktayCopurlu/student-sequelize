@@ -2,6 +2,12 @@ const db = require('../index')
 const Sequelize =require("sequelize");
 
   const Student = db.define("oktay_students", {
+    id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
     firstName: 
     {
       type: Sequelize.STRING

@@ -5,7 +5,7 @@ export default function StudentList() {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/oktay_students/")
+    fetch("http://localhost:3000/oktay_teacher/")
       .then((response) => response.json())
       .then((response) => setStudent(response))
       .catch((err) => console.log("Error :" + err));
@@ -13,7 +13,7 @@ export default function StudentList() {
 
   return (
     <div>
-      <h3>Student List</h3>
+      <h3>Teacher List</h3>
       <table className="table table-striped">
         
         <thead>
@@ -21,9 +21,7 @@ export default function StudentList() {
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Age</th>
-            <th>Class</th>
-            <th>City</th>
+     
           </tr>
         </thead>
         <tbody>
@@ -31,10 +29,7 @@ export default function StudentList() {
            return <tr key={i}>
               <td>{element.firstName}</td>
               <td>{element.lastName}</td>
-              <td>{element.age}</td>
-              <td>{element.class}</td>
-
-              <td>{element.city}</td>
+        
             </tr>;
           })}
         </tbody>

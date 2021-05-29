@@ -3,9 +3,8 @@ import React, { useState, useEffect } from "react";
 export default function StudentList() {
   const [student, setStudent] = useState([]);
 
-
   useEffect(() => {
-    fetch("http://localhost:3000/oktay_students/")
+    fetch("http://localhost:3000/oktay_lecture/")
       .then((response) => response.json())
       .then((response) => setStudent(response))
       .catch((err) => console.log("Error :" + err));
@@ -13,29 +12,20 @@ export default function StudentList() {
 
   return (
     <div>
-      <h3>Student List</h3>
+      <h3>Lecture List</h3>
       <table className="table table-striped">
-        
         <thead>
-    
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
-            <th>Class</th>
-            <th>City</th>
+            <th> Name</th>
           </tr>
         </thead>
         <tbody>
           {student.map((element, i) => {
-           return <tr key={i}>
-              <td>{element.firstName}</td>
-              <td>{element.lastName}</td>
-              <td>{element.age}</td>
-              <td>{element.class}</td>
-
-              <td>{element.city}</td>
-            </tr>;
+            return (
+              <tr key={i}>
+                <td>{element.name}</td>
+              </tr>
+            );
           })}
         </tbody>
       </table>

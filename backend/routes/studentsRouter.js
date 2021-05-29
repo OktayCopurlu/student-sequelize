@@ -15,14 +15,14 @@ const {  createStudent,
 });
 
 
-/** Add a new movie */
+/** Add a new student */
  router.post('/', async function(req, res, next) {
   const newStudent = req.body;
   const createdStudent = await createStudent(newStudent);
   return await res.status(201).send(createdStudent);
 });
 
-/** get a movie by id */
+/** get a student by id */
 router.get('/:id', async function(req, res, next) {
   let studentId = req.params.id;
   const student = await getStudentById(studentId)
@@ -30,14 +30,14 @@ router.get('/:id', async function(req, res, next) {
 });
 
 
-/** delete a movie by id */
+/** delete a student by id */
 router.delete('/:id', async function(req, res, next) {
   let studentId = await req.params.id;
   await deleteStudent(studentId);
   return await res.status(200).send({});
 });
 
-/** update a movie by id */
+/** update a student by id */
 router.put('/:id', async function(req, res, next) {
   let pId = req.params.id;
   let pUpdatedStudent = req.body;

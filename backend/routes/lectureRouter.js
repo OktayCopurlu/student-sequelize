@@ -15,14 +15,14 @@ const {  createLecture,
 });
 
 
-/** Add a new movie */
+/** Add a new lecture */
  router.post('/', async function(req, res, next) {
   const newLecture = req.body;
   const createdLecture = await createLecture(newLecture);
   return await res.status(201).send(createdLecture);
 });
 
-/** get a movie by id */
+/** get a lecture by id */
 router.get('/:id', async function(req, res, next) {
   let LectureId = req.params.id;
   const Lecture = await getLectureById(LectureId)
@@ -30,14 +30,14 @@ router.get('/:id', async function(req, res, next) {
 });
 
 
-/** delete a movie by id */
+/** delete a lecture by id */
 router.delete('/:id', async function(req, res, next) {
   let LectureId = await req.params.id;
   await deleteLecture(LectureId);
   return await res.status(200).send({});
 });
 
-/** update a movie by id */
+/** update a lecture by id */
 router.put('/:id', async function(req, res, next) {
   let pId = req.params.id;
   let pUpdatedLecture = req.body;

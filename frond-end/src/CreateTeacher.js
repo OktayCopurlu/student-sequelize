@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-export default function CreateStudent() {
+export default function CreateTeacher() {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  const [age, setAge] = useState();
-  const [className, setClassName] = useState();
-  const [city, setCity] = useState("");
   const id = Math.floor(Math.random()  * 1000000000);
+
   function onSubmit(event) {
     event.preventDefault();
     const requestOptions = {
@@ -15,13 +13,11 @@ export default function CreateStudent() {
       body: JSON.stringify({id,
         firstName,
         lastName,
-        city,
-        age,
-        className,
+ 
       }),
     };
 
-    fetch("http://localhost:3000/oktay_students/", requestOptions)
+    fetch("http://localhost:3000/oktay_teacher/", requestOptions)
       .then((response) => response.json())
       .then((response) => console.log(response))
       .catch((err) => console.log("Error :" + err));
@@ -32,7 +28,7 @@ export default function CreateStudent() {
       <div className="row createWish-row">
         <div className="col">
           <form className="form-create" onSubmit={onSubmit}>
-     
+
 
             <div className="form-group">
               <label htmlFor="title">First Name </label>
@@ -54,42 +50,11 @@ export default function CreateStudent() {
                 onChange={(event) => setLastName(event.target.value)}
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="title">Age</label>
-              <input
-                required
-                className="form-control"
-                type="text"
-                name="name"
-                onChange={(event) => setAge(event.target.value)}
-              />
-            </div>
-
-            <div className="input-field">
-              <label htmlFor="detail">Class</label>
-              <input
-                required
-                className="form-control"
-                name="detail"
-                onChange={(event) => setClassName(event.target.value)}
-              />
-            </div>
-
-            <div className="input-field">
-              <label htmlFor="contact">City</label>
-              <input
-                required
-                className="form-control"
-                type="text"
-                name="contact"
-                onChange={(event) => setCity(event.target.value)}
-              />
-            </div>
 
             <div className="form-group">
               <input
                 type="submit"
-                value="Create Student"
+                value="Create Teacher"
                 className="btn btn-primary"
               />
             </div>

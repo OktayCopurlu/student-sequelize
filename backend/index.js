@@ -1,6 +1,6 @@
-const Sequelize =require("sequelize");
+const Sequelize = require("sequelize");
 const dbConfig = require("./env.json");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 
 dotenv.config();
 
@@ -13,11 +13,6 @@ module.exports = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
     acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle
-  }
+    idle: dbConfig.pool.idle,
+  },
 });
-
-
-
-
-
